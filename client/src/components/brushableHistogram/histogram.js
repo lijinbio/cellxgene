@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 // import { interpolateCool } from "d3-scale-chromatic";
-import { interpolateBluesRert } from "color_cellxgene_spatial";
+// import { interpolateBluesRert } from "color_cellxgene_spatial";
+import { interpolateGrayBlueRert } from "color_cellxgene_spatial";
 import * as d3 from "d3";
 
 import maybeScientific from "../../util/maybeScientific";
@@ -55,7 +56,7 @@ const Histogram = ({
     //   .domain([0, bins.length]);
 
     const colorScale = d3
-      .scaleSequential(interpolateBluesRert)
+      .scaleSequential(interpolateGrayBlueRert)
       .domain([0, bins.length]);
 
     const histogramScale = d3

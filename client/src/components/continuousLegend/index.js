@@ -2,7 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import * as d3 from "d3";
 // import { interpolateCool } from "d3-scale-chromatic";
-import { interpolateBluesRert } from "color_cellxgene_spatial";
+// import { interpolateBluesRert } from "color_cellxgene_spatial";
+import { interpolateGrayBlueRert } from "color_cellxgene_spatial";
 
 import {
   createColorTable,
@@ -150,7 +151,7 @@ class ContinuousLegend extends React.Component {
             "#continuous_legend",
             // d3.scaleSequential(interpolateCool).domain(colorScale.domain()),
             d3
-              .scaleSequential(interpolateBluesRert)
+              .scaleSequential(interpolateGrayBlueRert)
               .domain(colorScale.domain()),
             colorAccessor
           );
