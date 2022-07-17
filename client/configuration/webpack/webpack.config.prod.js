@@ -18,6 +18,9 @@ const sharedConfig = require("./webpack.config.shared");
 const fonts = path.resolve("src/fonts");
 const nodeModules = path.resolve("node_modules");
 
+// BCM logo
+const logos = path.resolve("logo");
+
 const prodConfig = {
   mode: "production",
   bail: true,
@@ -50,6 +53,15 @@ const prodConfig = {
           name: "static/assets/[name]-[contenthash].[ext]",
           // (thuang): This is needed to make sure @font url path is '../static/assets/'
           publicPath: "static/",
+        },
+      },
+      {
+        test: /\.(jpg|png|gif)$/i,
+        loader: "file-loader",
+        include: [logos],
+        options: {
+          name: "static/assets/[name]-[contenthash].[ext]",
+          // publicPath: "static/", // will cause duplicated static/static/assets, so delete
         },
       },
     ],

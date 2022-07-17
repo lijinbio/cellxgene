@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 
 import * as globals from "../../globals";
 
+import bcmlogo from '../../../logo/bcm_logo.png';
+
 @connect((state) => {
   const { corpora_props: corporaProps } = state.config;
   const correctVersion =
@@ -30,14 +32,6 @@ class LeftSideBar extends React.Component {
       title,
     } = this.props;
 
-    console.log(datasetTitle);
-    console.log(libraryVersions);
-    console.log(aboutLink);
-    console.log(privacyURL);
-    console.log(tosURL);
-    console.log(dispatch);
-    console.log(title);
-
     return (
       <div
         style={{
@@ -53,7 +47,7 @@ class LeftSideBar extends React.Component {
       >
         <div>
           <img
-            src="https://bcm.box.com/shared/static/jj6jqc1vv5wal0rchl0yhyxvdpwxd3m1.png"
+            src={bcmlogo}
             alt="Baylor College of Medicine"
             width="48"
             height="48"
