@@ -67,7 +67,7 @@ class LeftSideBar extends React.Component {
                     userSelect: "none",
                   }}
                 >
-                  Spatial atlas of mouse retina
+                  Spatial sinlge cell atlas of the mouse retina
                 </span>
               </td>
             </tr>
