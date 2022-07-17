@@ -60,7 +60,7 @@ class LeftSideBar extends React.Component {
           />
         </div>
         <div>
-          <HTMLTable cellpadding="0" cellspacing="0">
+          <table cellpadding="0" cellspacing="0">
             <tr>
               <td>
                 <span
@@ -109,7 +109,7 @@ class LeftSideBar extends React.Component {
                 </span>
               </td>
             </tr>
-          </HTMLTable>
+          </table>
         </div>
       </div>
     );
