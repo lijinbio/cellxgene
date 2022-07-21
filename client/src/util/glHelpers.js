@@ -76,10 +76,10 @@ const offset = scale * -domain[0] + range[0];
 //   float pointSize(float nPoints, float minViewportDimension, bool isSelected, bool isHighlight) {
 //     float density = nPoints / (minViewportDimension * minViewportDimension);
 //     float pointSize = (${scale.toFixed(4)}*density) + ${offset.toFixed(4)};
-//     pointSize = clamp(pointSize, 
-//       ${range[0].toFixed(4)}, 
+//     pointSize = clamp(pointSize,
+//       ${range[0].toFixed(4)},
 //       ${range[1].toFixed(4)});
-// 
+//
 //     if (isHighlight) return 2. * pointSize;
 //     if (isSelected) return pointSize;
 //     return pointSize / 3.;
@@ -94,7 +94,7 @@ export const glPointSize = `
       ${range[1].toFixed(4)});
 
     if (isHighlight) return pointSize;
-    if (isSelected) return pointSize / 3.;
-    return pointSize / 5.;
+    if (isSelected) return pointSize / 2.;
+    return pointSize / 3.;
   }
 `;
