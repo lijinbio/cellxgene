@@ -5,11 +5,12 @@ import { IconNames } from "@blueprintjs/icons";
 
 import GeneSet from "./geneSet";
 import QuickGene from "./quickGene";
+import GeneSubscriber from "./geneSubscriber";
 import CreateGenesetDialogue from "./menus/createGenesetDialogue";
 
 @connect((state) => ({
-    genesets: state.genesets.genesets,
-  }))
+  genesets: state.genesets.genesets,
+}))
 class GeneExpression extends React.Component {
   constructor(props) {
     super(props);
@@ -43,7 +44,10 @@ class GeneExpression extends React.Component {
   };
 
   handleExpandGeneSets = () => {
-    this.setState((state) => ({ ...state, geneSetsExpanded: !state.geneSetsExpanded }));
+    this.setState((state) => ({
+      ...state,
+      geneSetsExpanded: !state.geneSetsExpanded,
+    }));
   };
 
   render() {
@@ -51,6 +55,7 @@ class GeneExpression extends React.Component {
     return (
       <div>
         <QuickGene />
+        <GeneSubscriber />
         <div>
           <div
             style={{
