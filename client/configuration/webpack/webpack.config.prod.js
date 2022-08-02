@@ -3,9 +3,7 @@ const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
-const CleanCss = require("clean-css");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const { merge } = require("webpack-merge");
@@ -32,8 +30,8 @@ const prodConfig = {
     minimize: true,
     minimizer: [
       new TerserJSPlugin({}),
-      new OptimizeCSSAssetsPlugin({
-        cssProcessor: CleanCss,
+      new CssMinimizerPlugin({
+        minify: CssMinimizerPlugin.cleanCssMinify,
       }),
     ],
   },
@@ -77,21 +75,6 @@ const prodConfig = {
       verbose: true,
       protectWebpackAssets: false,
       cleanAfterEveryBuildPatterns: ["main.js", "main.css"],
-    }),
-    new FaviconsWebpackPlugin({
-      logo: "./favicon.png",
-      prefix: "static/assets/",
-      favicons: {
-        icons: {
-          android: false,
-          appleIcon: false,
-          appleStartup: false,
-          coast: false,
-          firefox: false,
-          windows: false,
-          yandex: false,
-        },
-      },
     }),
     new MiniCssExtractPlugin({
       filename: "static/[name]-[contenthash].css",
