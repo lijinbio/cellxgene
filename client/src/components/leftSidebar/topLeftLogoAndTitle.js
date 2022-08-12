@@ -63,15 +63,15 @@ class LeftSideBar extends React.Component {
               <td>
                 <span
                   style={{
-                    fontSize: 14,
+                    fontSize: 12,
                     position: "relative",
                     fontWeight: "bold",
-                    marginLeft: 10,
+                    marginLeft: 3,
                     color: globals.logoColor,
                     userSelect: "none",
                   }}
                 >
-                  Single cell atlas of human developmental retina
+                  Single cell atlas of the human developmental retina
                 </span>
               </td>
             </tr>
@@ -82,7 +82,7 @@ class LeftSideBar extends React.Component {
                     fontSize: 12,
                     position: "relative",
                     fontWeight: "normal",
-                    marginLeft: 10,
+                    marginLeft: 3,
                     color: globals.logoColor,
                     userSelect: "none",
                   }}
@@ -98,7 +98,7 @@ class LeftSideBar extends React.Component {
                     fontSize: 12,
                     position: "relative",
                     fontWeight: "normal",
-                    marginLeft: 10,
+                    marginLeft: 3,
                     color: globals.logoColor,
                     userSelect: "none",
                   }}
