@@ -3,7 +3,7 @@
 
 source trapdebug
 source "$(conda info --base)/etc/profile.d/conda.sh"
-conda init && conda activate cellxgene_mouseatlas
+conda init && conda activate cellxgene_humandevretina
 make clean
 make pydist
 pip install dist/*.gz

@@ -3,5 +3,5 @@
 
 source trapdebug
 source "$(conda info --base)/etc/profile.d/conda.sh"
-conda init && conda activate cellxgene_mouseatlas
+conda init && conda activate cellxgene_humandevretina
 cellxgene.sh -e umap -e MERFISH /tmp/Chen_MERFISH_wt2_5_cellxgene.h5ad
