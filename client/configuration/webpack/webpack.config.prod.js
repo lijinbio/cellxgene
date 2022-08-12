@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 const { merge } = require("webpack-merge");
 
@@ -15,6 +16,9 @@ const sharedConfig = require("./webpack.config.shared");
 
 const fonts = path.resolve("src/fonts");
 const nodeModules = path.resolve("node_modules");
+
+// BCM logo
+const logos = path.resolve("logo");
 
 const prodConfig = {
   mode: "production",
@@ -50,6 +54,15 @@ const prodConfig = {
           publicPath: "static/",
         },
       },
+      {
+        test: /\.(jpg|png|gif)$/i,
+        loader: "file-loader",
+        include: [logos],
+        options: {
+          name: "static/assets/[name]-[contenthash].[ext]",
+          // publicPath: "static/", // will cause duplicated static/static/assets, so delete
+        },
+      },
     ],
   },
   plugins: [
@@ -63,6 +76,21 @@ const prodConfig = {
       verbose: true,
       protectWebpackAssets: false,
       cleanAfterEveryBuildPatterns: ["main.js", "main.css"],
+    }),
+    new FaviconsWebpackPlugin({
+      logo: "./favicon.png",
+      prefix: "static/assets/",
+      favicons: {
+        icons: {
+          android: false,
+          appleIcon: false,
+          appleStartup: false,
+          coast: false,
+          firefox: false,
+          windows: false,
+          yandex: false,
+        },
+      },
     }),
     new MiniCssExtractPlugin({
       filename: "static/[name]-[contenthash].css",

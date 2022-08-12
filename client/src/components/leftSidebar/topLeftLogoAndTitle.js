@@ -6,6 +6,8 @@ import Logo from "../framework/logo";
 import Truncate from "../util/truncate";
 import InformationMenu from "./infoMenu";
 
+import bcmlogo from '../../../logo/bcm_logo.png';
+
 const DATASET_TITLE_FONT_SIZE = 14;
 
 @connect((state) => {
@@ -43,60 +45,69 @@ class LeftSideBar extends React.Component {
           zIndex: 1,
           borderBottom: `1px solid ${globals.lighterGrey}`,
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "start",
           alignItems: "center",
         }}
       >
         <div>
-          <Logo size={28} />
-          <span
-            style={{
-              fontSize: 24,
-              position: "relative",
-              top: -6,
-              fontWeight: "bold",
-              marginLeft: 5,
-              color: globals.logoColor,
-              userSelect: "none",
-            }}
-          >
-            cell
-            <span
-              style={{
-                position: "relative",
-                top: 1,
-                fontWeight: 300,
-                fontSize: 24,
-              }}
-            >
-              ×
-            </span>
-            gene
-          </span>
-        </div>
-        <div style={{ marginRight: 5, height: "100%" }}>
-          <span
-            minimal
-            style={{
-              fontSize: DATASET_TITLE_FONT_SIZE,
-              padding: "5px 10px",
-            }}
-          >
-            <Truncate>
-              <span style={{ maxWidth: 155 }} data-testid="header">
-                {title ?? datasetTitle}
-              </span>
-            </Truncate>
-          </span>
-          <InformationMenu
-            {...{
-              libraryVersions,
-              aboutLink,
-              tosURL,
-              privacyURL,
-              dispatch,
-            }}
+          <img
+            src={bcmlogo}
+            alt="Baylor College of Medicine"
+            width="48"
+            height="48"
           />
+        </div>
+        <div>
+          <table cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <span
+                  style={{
+                    fontSize: 14,
+                    position: "relative",
+                    fontWeight: "bold",
+                    marginLeft: 10,
+                    color: globals.logoColor,
+                    userSelect: "none",
+                  }}
+                >
+                  Single cell atlas of the mouse retina
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span
+                  style={{
+                    fontSize: 12,
+                    position: "relative",
+                    fontWeight: "normal",
+                    marginLeft: 10,
+                    color: globals.logoColor,
+                    userSelect: "none",
+                  }}
+                >
+                  <a href="https://rchenlab.github.io">Rui Chen lab</a>
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span
+                  style={{
+                    fontSize: 12,
+                    position: "relative",
+                    fontWeight: "normal",
+                    marginLeft: 10,
+                    color: globals.logoColor,
+                    userSelect: "none",
+                  }}
+                >
+                  <a href="https://www.bcm.edu">Baylor College of Medicine</a>
+                </span>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     );
