@@ -71,7 +71,7 @@ class LeftSideBar extends React.Component {
                     userSelect: "none",
                   }}
                 >
-                  Single cell atlas of the mouse retina
+                  Single cell atlas of the human developmental retina
                 </span>
               </td>
             </tr>
